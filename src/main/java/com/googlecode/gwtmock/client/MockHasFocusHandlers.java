@@ -15,29 +15,27 @@
  */
 package com.googlecode.gwtmock.client;
 
-import com.google.gwt.event.logical.shared.HasValueChangeHandlers;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.dom.client.FocusEvent;
+import com.google.gwt.event.dom.client.FocusHandler;
+import com.google.gwt.event.dom.client.HasFocusHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
  * @author Katharina Fahnenbruck
  * 
  */
-public class MockHasValueChangeHandlers<T> extends MockHasHandlers implements
-		HasValueChangeHandlers<T> {
+public class MockHasFocusHandlers extends MockHasHandlers implements HasFocusHandlers {
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.google.gwt.event.logical.shared.HasValueChangeHandlers#
-	 * addValueChangeHandler
-	 * (com.google.gwt.event.logical.shared.ValueChangeHandler)
+	 * @see
+	 * com.google.gwt.event.dom.client.HasFocusHandlers#addFocusHandler(com.
+	 * google.gwt.event.dom.client.FocusHandler)
 	 */
 	@Override
-	public HandlerRegistration addValueChangeHandler(
-			ValueChangeHandler<T> handler) {
-		return eventBus.addHandler(ValueChangeEvent.getType(), handler);
+	public HandlerRegistration addFocusHandler(FocusHandler handler) {
+		return eventBus.addHandler(FocusEvent.getType(), handler);
 	}
 
 }

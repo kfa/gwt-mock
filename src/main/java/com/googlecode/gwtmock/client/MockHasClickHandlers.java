@@ -15,29 +15,27 @@
  */
 package com.googlecode.gwtmock.client;
 
-import com.google.gwt.event.logical.shared.HasValueChangeHandlers;
-import com.google.gwt.event.logical.shared.ValueChangeEvent;
-import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
  * @author Katharina Fahnenbruck
  * 
  */
-public class MockHasValueChangeHandlers<T> extends MockHasHandlers implements
-		HasValueChangeHandlers<T> {
+public class MockHasClickHandlers extends MockHasHandlers implements HasClickHandlers {
 
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see com.google.gwt.event.logical.shared.HasValueChangeHandlers#
-	 * addValueChangeHandler
-	 * (com.google.gwt.event.logical.shared.ValueChangeHandler)
+	 * @see
+	 * com.google.gwt.event.dom.client.HasClickHandlers#addClickHandler(com.
+	 * google.gwt.event.dom.client.ClickHandler)
 	 */
 	@Override
-	public HandlerRegistration addValueChangeHandler(
-			ValueChangeHandler<T> handler) {
-		return eventBus.addHandler(ValueChangeEvent.getType(), handler);
+	public HandlerRegistration addClickHandler(ClickHandler handler) {
+		return eventBus.addHandler(ClickEvent.getType(), handler);
 	}
 
 }
