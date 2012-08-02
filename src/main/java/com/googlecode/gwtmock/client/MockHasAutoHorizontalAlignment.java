@@ -21,36 +21,9 @@ import com.google.gwt.user.client.ui.HasAutoHorizontalAlignment;
  * @author Katharina Fahnenbruck
  * 
  */
-public class MockHasAutoHorizontalAlignment implements HasAutoHorizontalAlignment {
+public class MockHasAutoHorizontalAlignment extends MockHasHorizontalAlignment implements HasAutoHorizontalAlignment {
 
-	protected HorizontalAlignmentConstant horizontalAlignmentConstant;
 	protected AutoHorizontalAlignmentConstant autoHorizontalAlignmentConstant;
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.google.gwt.user.client.ui.HasHorizontalAlignment#getHorizontalAlignment
-	 * ()
-	 */
-	@Override
-	public HorizontalAlignmentConstant getHorizontalAlignment() {
-		return horizontalAlignmentConstant;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * com.google.gwt.user.client.ui.HasHorizontalAlignment#setHorizontalAlignment
-	 * (com.google.gwt.user.client.ui.HasHorizontalAlignment.
-	 * HorizontalAlignmentConstant)
-	 */
-	@Override
-	public void setHorizontalAlignment(HorizontalAlignmentConstant align) {
-		this.horizontalAlignmentConstant = align;
-
-	}
 
 	/*
 	 * (non-Javadoc)
