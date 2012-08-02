@@ -34,7 +34,6 @@ public class MockHasHorizontalAlignment implements HasHorizontalAlignment {
 	 */
 	@Override
 	public HorizontalAlignmentConstant getHorizontalAlignment() {
-		// TODO Auto-generated method stub
 		return horizontalAlignmentConstant;
 	}
 
