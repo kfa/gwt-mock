@@ -15,20 +15,26 @@
  */
 package com.googlecode.gwtmock.client;
 
-import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.event.shared.HasHandlers;
-import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.gwt.event.dom.client.DragEvent;
+import com.google.gwt.event.dom.client.DragHandler;
+import com.google.gwt.event.dom.client.HasDragHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
  * @author Katharina Fahnenbruck
  * 
  */
-public class MockHasHandlers implements HasHandlers {
-	protected EventBus eventBus = new SimpleEventBus();
+public class MockHasDragHandlers extends MockHasHandlers implements HasDragHandlers {
 
-	public void fireEvent(GwtEvent<?> event) {
-		eventBus.fireEvent(event);
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.gwt.event.dom.client.HasDragHandlers#addDragHandler(com.google
+	 * .gwt.event.dom.client.DragHandler)
+	 */
+	@Override
+	public HandlerRegistration addDragHandler(DragHandler handler) {
+		return eventBus.addHandler(DragEvent.getType(), handler);
 	}
 }

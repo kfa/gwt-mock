@@ -15,20 +15,27 @@
  */
 package com.googlecode.gwtmock.client;
 
-import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.event.shared.HasHandlers;
-import com.google.gwt.event.shared.SimpleEventBus;
+import com.google.gwt.event.logical.shared.CloseEvent;
+import com.google.gwt.event.logical.shared.CloseHandler;
+import com.google.gwt.event.logical.shared.HasCloseHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
 
 /**
  * @author Katharina Fahnenbruck
  * 
  */
-public class MockHasHandlers implements HasHandlers {
-	protected EventBus eventBus = new SimpleEventBus();
+public class MockHasCloseHandlers<T> extends MockHasHandlers implements HasCloseHandlers<T> {
 
-	public void fireEvent(GwtEvent<?> event) {
-		eventBus.fireEvent(event);
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.gwt.event.logical.shared.HasCloseHandlers#addCloseHandler(
+	 * com.google.gwt.event.logical.shared.CloseHandler)
+	 */
+	@Override
+	public HandlerRegistration addCloseHandler(CloseHandler<T> handler) {
+		return eventBus.addHandler(CloseEvent.getType(), handler);
 	}
+
 }

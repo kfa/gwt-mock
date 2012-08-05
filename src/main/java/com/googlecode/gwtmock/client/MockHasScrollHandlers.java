@@ -15,20 +15,31 @@
  */
 package com.googlecode.gwtmock.client;
 
+import com.google.gwt.event.dom.client.HasScrollHandlers;
+import com.google.gwt.event.dom.client.ScrollEvent;
+import com.google.gwt.event.dom.client.ScrollHandler;
 import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.event.shared.HasHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.event.shared.SimpleEventBus;
 
 /**
  * @author Katharina Fahnenbruck
  * 
  */
-public class MockHasHandlers implements HasHandlers {
+public class MockHasScrollHandlers implements HasScrollHandlers {
+
 	protected EventBus eventBus = new SimpleEventBus();
 
-	public void fireEvent(GwtEvent<?> event) {
-		eventBus.fireEvent(event);
-
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.google.gwt.event.dom.client.HasScrollHandlers#addScrollHandler(com
+	 * .google.gwt.event.dom.client.ScrollHandler)
+	 */
+	@Override
+	public HandlerRegistration addScrollHandler(ScrollHandler handler) {
+		return eventBus.addHandler(ScrollEvent.getType(), handler);
 	}
+
 }
